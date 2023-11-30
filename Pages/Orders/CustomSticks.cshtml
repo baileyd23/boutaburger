@@ -1,0 +1,51 @@
+﻿@page
+@model boutaburger.Pages.Orders.CustomSticksModel
+@{
+    <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
+    <div style="display: inline-block;" class="text-left">
+        <img src="~/images/mozzerlaSticks.jpg"
+             width="450"
+             height="450"
+             class="chasm" />
+    </div>
+
+    <div style="display: inline-block; margin-left: 100px;" class="text-center">
+        <h3>Mozzerela Sticks     $3.68</h3>
+        <h3>
+            <b>What's on it: </b> <br/>
+            Mozzerela Sticks<br/>
+        </h3>
+        <br/>
+    </div>
+
+<div class="text-center container">
+
+    <label for="sizeSlider" class="bigger-text">Size:</label>
+    <input type="range" id="sizeSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('sizeSlider', 'sizeDisplay')">
+    <span id="sizeDisplay" class="bigger-text">Regular</span>
+    <br />
+
+    <script>
+        function updateDisplay(sliderId, displayId) {
+            var sliderValue = document.getElementById(sliderId).value;
+            var display = document.getElementById(displayId);
+
+            switch (sliderValue) {
+                case '0':
+                    display.textContent = 'Small';
+                    break;
+                case '1':
+                    display.textContent = 'Medium';
+                    break;
+                case '2':
+                    display.textContent = 'Large';
+                    break;
+                default:
+                    display.textContent = 'Medium';
+            }
+        }
+    </script>
+            <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+</div>
+</form>
+}

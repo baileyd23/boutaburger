@@ -1,0 +1,70 @@
+﻿@page
+@model boutaburger.Pages.Orders.CustomMeltingModel
+@{
+
+    <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
+    <div style="display: inline-block;" class="text-left">
+        <img src="~/images/imMelting.jpg"
+             width="450"
+             height="450"
+             class="chasm" />
+    </div>
+
+    <div style="display: inline-block; margin-left: 100px;" class="text-center">
+        <h4>I'm Melting     $12.52</h4>
+        <h5>
+            <b>What's on it: </b><br />
+                Large Bun, Large Beef <br />
+                Patty (2), Onion (Regular), <br />
+                Cheese (Regular), Bacon <br />
+                (Regular), boutaburger <br />
+                Sauce (Regular), <br />
+        </h5>
+    </div>
+
+    <div class="text-center container">
+        <label for="OnionSlider" class="bigger-text">Grilled Onion:</label>
+        <input type="range" id="OnionSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('OnionSlider', 'OnionDisplay')">
+        <span id="OnionDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="CheeseSlider" class="bigger-text">Cheese:</label>
+        <input type="range" id="CheeseSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('CheeseSlider', 'CheeseDisplay')">
+        <span id="CheeseDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="BaconSlider" class="bigger-text">Bacon:</label>
+        <input type="range" id="BaconSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('BaconSlider', 'BaconDisplay')">
+        <span id="BaconDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="boutaburgerSauceSlider" class="bigger-text">boutaburger Sauce:</label>
+        <input type="range" id="boutaburgerSauceSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('boutaburgerSauceSlider', 'boutaburgerSauceDisplay')">
+        <span id="boutaburgerSauceDisplay" class="bigger-text">Regular</span>
+        <br />
+        <script>
+            function updateDisplay(sliderId, displayId) {
+                var sliderValue = document.getElementById(sliderId).value;
+                var display = document.getElementById(displayId);
+
+                switch (sliderValue) {
+                    case '0':
+                        display.textContent = 'None';
+                        break;
+                    case '1':
+                        display.textContent = 'Regular';
+                        break;
+                    case '2':
+                        display.textContent = 'Extra';
+                        break;
+                    default:
+                        display.textContent = 'Regular';
+                }
+            }
+        </script>
+            <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+
+    </div>
+    </form>
+
+}

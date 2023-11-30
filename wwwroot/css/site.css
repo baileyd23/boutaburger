@@ -1,5 +1,5 @@
 html {
-    
+
     font-size: 14px;
 }
 
@@ -18,9 +18,44 @@ html {
 body {
     margin-bottom: 60px;
     background-color: darkgray;
+    //background: repeating-linear-gradient( 90deg, darkgray, darkgray 10px, #A7F1A7 10px, #A7F1A7 20px);
 }
 
 header {
-    background-color: #FF7710;
-    padding: 25px;
+    background-color: #A7F1A7;
+    padding: 35px;
 }
+
+.menuGreySpace {
+    background: grey;
+    margin-bottom: 0;
+}
+
+.chasm {
+    margin-top: 40px;
+}
+.menuImage {
+    height: 200px;
+
+}
+
+.bigger-text {
+    font-size: 20px;
+}
+
+.chachaSlide {
+    margin-right: 20px;
+}
+
+label[aria-checked="true"] {
+    color: black;
+}
+
+label[aria-checked="false"] {
+    color: grey;
+}
+
+.unclickable {
+    pointer-events: none;
+}
+

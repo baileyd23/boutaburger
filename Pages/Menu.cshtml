@@ -1,5 +1,55 @@
 ﻿@page
 @model boutaburger.Pages.MenuModel
 @{
-    <h1> Burgers, fries, salad, chickenstrips, drinks, milkshakes</h1>
+   <div class="text-center">
+    <h1> Menu</h1>
+   </div>
+
+    <div class="container">
+        <div class="row">
+                <div class="col-3 mb-5">
+                    <div class="w-100 row menuGreySpace">
+                        <div class="menuGreySpace">
+                            <a href="/burger">
+                                <img src="~/images/borger.jpeg" class="w-100 menuImage" />
+                            </a>
+                        </div>
+                     <h3 style="text-align:center;">Burger</h3>
+                    </div>
+                </div>
+
+            <div class="col-3 mb-5">
+                <div class="w-100 row menuGreySpace">
+                    <div class="menuGreySpace">
+                        <a href="/sides">
+                            <img src="~/images/friesMain.jpg" class="w-100 menuImage" />
+                        </a>
+                    </div>
+                        <h3 style="text-align:center;">Sides</h3>
+                </div>
+            </div>
+       
+            <div class="col-3 mb-5">
+                <div class="w-100 row menuGreySpace">
+                    <div class="menuGreySpace">
+                        <a href="/drinks">
+                            <img src="~/images/drinkMain.jpg" class="w-100 menuImage" />
+                        </a>
+                    </div>
+                        <h3 style="text-align:center;">Drinks and Shakes</h3>
+                </div>
+            </div>
+     
+            <div class="col-3 mb-5">
+                <div class="w-100 row menuGreySpace">
+                    <div class="menuGreySpace">
+                        <a href="/dessert">
+                            <img src="~/images/dessertMain.jpg" class="w-100 menuImage" />
+                        </a>
+                    </div>
+                        <h3 style="text-align:center;">Dessert</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 }

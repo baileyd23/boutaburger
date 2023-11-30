@@ -1,0 +1,125 @@
+﻿@page
+@model boutaburger.Pages.Orders.CustomPopModel
+@{
+
+    <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
+    <div style="display: inline-block;" class="text-left">
+        <img src="~/images/pop.jpg"
+             width="450"
+             height="450"
+             class="chasm" />
+    </div>
+
+    <div style="display: inline-block; margin-left: 100px;" class="text-center">
+        <h3>Fountain Drink     $2.99</h3>
+        <h4>
+                <b>What's we have: </b><br />
+                Coke, Diet Coke, Sprite,<br />
+                Dr Pepper, Diet Dr Pepper,<br />
+                Big Red, Root Beer,<br />
+                Minute Maid<br/>
+        </h4>
+        <br />
+    </div>
+    <br/>
+    <label aria-checked="false" id="labelCoke">
+        <span class="bigger-text">
+        <span class="chachaSlide">Coke:</span>
+        <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Coke', this.value, 'labelCoke')">
+        <span class="bigger-text" id="sizeDisplayCoke">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelDietCoke">
+        <span class="bigger-text">
+        <span class="chachaSlide">Diet Coke:</span>
+        <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Diet Coke', this.value, 'labelDietCoke')">
+        <span class="bigger-text" id="sizeDisplayDietCoke">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelSprite">
+        <span class="bigger-text">
+        <span class="chachaSlide">Sprite:</span>
+        <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Sprite', this.value, 'labelSprite')">
+        <span class="bigger-text" id="sizeDisplaySprite">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelDrPepper">
+        <span class="bigger-text">
+        <span class="chachaSlide">Dr Pepper:</span>
+        <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Dr Pepper', this.value, 'labelDrPepper')">
+        <span class="bigger-text" id="sizeDisplayDrPepper">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelDietDrPepper">
+        <span class="bigger-text">
+        <span class="chachaSlide">Diet Dr Pepper:</span>
+        <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Diet Dr Pepper', this.value, 'labelDietDrPepper')">
+        <span class="bigger-text" id="sizeDisplayDietDrPepper">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelBigRed">
+        <span class="bigger-text">
+        <span class="chachaSlide">Big Red:</span>
+        <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Big Red', this.value, 'labelBigRed')">
+        <span class="bigger-text" id="sizeDisplayBigRed">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelRootBeer">
+        <span class="bigger-text">
+            <span class="chachaSlide">Root Beer:</span>
+                <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Root Beer', this.value, 'labelRootBeer')">
+            <span class="bigger-text" id="sizeDisplayRootBeer">Medium</span>
+        </span>
+    </label>
+
+    <label aria-checked="false" id="labelMinuteMaid">
+        <span class="bigger-text">
+        <span class="chachaSlide">Minute Maid:</span>
+            <input type="range" class="size-slider" min="0" max="2" step="1" value="1" oninput="updateDisplay('Minute Maid', this.value, 'labelMinuteMaid')">
+        <span class="bigger-text" id="sizeDisplayMinuteMaid">Medium</span>
+        </span>
+    </label>
+
+    <br />
+
+    <script>
+        function updateDisplay(beverage, size, labelId) {
+            var display = document.getElementById('selected');
+            var sizeDisplay = document.getElementById('sizeDisplay' + beverage.replace(/\s+/g, ''));
+
+            sizeDisplay.textContent = getSizeLabel(size);
+            display.textContent = `Beverage: ${beverage}, Size: ${getSizeLabel(size)}`;
+
+            var labels = ['labelCoke', 'labelDietCoke', 'labelSprite', 'labelDrPepper', 'labelDietDrPepper', 'labelBigRed', 'labelRootBeer', 'labelMinuteMaid'];
+
+            labels.forEach(function (label) {
+                var currentLabel = document.getElementById(label);
+                currentLabel.setAttribute('aria-checked', label === labelId ? 'true' : 'false');
+            });
+        
+        }
+
+        function getSizeLabel(size) {
+            switch (size) {
+                case '0':
+                    return 'Small';
+                case '1':
+                    return 'Medium';
+                case '2':
+                    return 'Large';
+                default:
+                    return 'Medium';
+            }
+        }
+
+    </script>
+        <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+    </form>
+   
+}

@@ -1,16 +1,14 @@
+using boutaburger.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace boutaburger.Pages
-{
-    public class Start_OrderModel : PageModel
+{ 
+    public class burgerModel : PageModel
     {
+       
         public void OnGet()
         {
-        }
-        public IActionResult OnPost()
-        {
-            return RedirectToPage("/Menu");
         }
     }
 }

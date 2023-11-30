@@ -1,0 +1,80 @@
+﻿@page
+@model boutaburger.Pages.Orders.CustomSliderModel
+@{
+    <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
+    <div style="display: inline-block;" class="text-left">
+        <img src="~/images/slipNslider.jpg"
+             width="450"
+             height="450"
+             class="chasm" />
+    </div>
+
+    <div style="display: inline-block; margin-left: 100px;" class="text-center">
+        <h4>Slip~n~Slider     $4.32</h4>
+        <h5>
+                <b>What's on it:</b><br />
+                Large Bun, Large Beef<br />
+                Patty, Ham (Regular), <br />
+                Cheese (Regular),<br />
+                Pineapple (Regular), <br />
+                Pico (Regular),<br />
+                Guacamole (Regular), <br />
+                BBQ Sauce (Regular) <br/>
+        </h5>
+    </div>
+
+    <div class="text-center container">
+        <label for="hamSlider" class="bigger-text">Ham:</label>
+        <input type="range" id="hamSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('hamSlider', 'hamDisplay')">
+        <span id="hamDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="CheeseSlider" class="bigger-text">Cheese:</label>
+        <input type="range" id="CheeseSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('CheeseSlider', 'CheeseDisplay')">
+        <span id="CheeseDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="PineappleSlider" class="bigger-text">Pineapple:</label>
+        <input type="range" id="PineappleSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('PineappleSlider', 'PineappleDisplay')">
+        <span id="PineappleDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="PicoSlider" class="bigger-text">Pico:</label>
+        <input type="range" id="PicoSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('PicoSlider', 'PicoDisplay')">
+        <span id="PicoDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="GuacamoleSlider" class="bigger-text">Guacamole:</label>
+        <input type="range" id="GuacamoleSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('GuacamoleSlider', 'GuacamoleDisplay')">
+        <span id="GuacamoleDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="BBQSlider" class="bigger-text">BBQ Sauce:</label>
+        <input type="range" id="BBQSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('BBQSlider', 'BBQDisplay')">
+        <span id="BBQDisplay" class="bigger-text">Regular</span>
+        <br />
+        <script>
+            function updateDisplay(sliderId, displayId) {
+                var sliderValue = document.getElementById(sliderId).value;
+                var display = document.getElementById(displayId);
+
+                switch (sliderValue) {
+                    case '0':
+                        display.textContent = 'None';
+                        break;
+                    case '1':
+                        display.textContent = 'Regular';
+                        break;
+                    case '2':
+                        display.textContent = 'Extra';
+                        break;
+                    default:
+                        display.textContent = 'Regular';
+                }
+            }
+        </script>
+            <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+
+    </div>
+    </form>
+}

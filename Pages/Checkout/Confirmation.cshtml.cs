@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace boutaburger.Pages
+namespace boutaburger.Pages.Checkout
 {
-    public class StoriesModel : PageModel
+    public class ConfirmationModel : PageModel
     {
         public void OnGet()
         {

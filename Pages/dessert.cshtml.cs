@@ -3,14 +3,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace boutaburger.Pages
 {
-    public class Start_OrderModel : PageModel
+    public class dessertModel : PageModel
     {
         public void OnGet()
         {
-        }
-        public IActionResult OnPost()
-        {
-            return RedirectToPage("/Menu");
         }
     }
 }

@@ -1,0 +1,56 @@
+﻿@page
+@model boutaburger.Pages.Orders.CustomSlawModel
+@{
+
+    <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
+    <div style="display: inline-block;" class="text-left">
+        <img src="~/images/iFoughtTheSlawBurger.jpg"
+             width="450"
+             height="450"
+             class="chasm" />
+    </div>
+
+    <div style="display: inline-block; margin-left: 100px;" class="text-center">
+        <h4>I Fought the Slaw     $6.26</h4>
+        <h5>
+                <b>What's on it: </b>Large Bun,<br />
+            Large Beef Patty (2), ColeSlaw <br/>
+            (Regular), Lettuce (Regular), <br />
+        </h5>
+    </div>
+
+    <div class="text-center container">
+        <label for="ColeSlawSlider" class="bigger-text">ColeSlaw:</label>
+        <input type="range" id="ColeSlawSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('ColeSlawSlider', 'ColeSlawDisplay')">
+        <span id="ColeSlawDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="LettuceSlider" class="bigger-text">Lettuce:</label>
+        <input type="range" id="LettuceSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('LettuceSlider', 'LettuceDisplay')">
+        <span id="LettuceDisplay" class="bigger-text">Regular</span>
+        <br />
+        <script>
+            function updateDisplay(sliderId, displayId) {
+                var sliderValue = document.getElementById(sliderId).value;
+                var display = document.getElementById(displayId);
+
+                switch (sliderValue) {
+                    case '0':
+                        display.textContent = 'None';
+                        break;
+                    case '1':
+                        display.textContent = 'Regular';
+                        break;
+                    case '2':
+                        display.textContent = 'Extra';
+                        break;
+                    default:
+                        display.textContent = 'Regular';
+                }
+            }
+        </script>
+            <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+
+    </div>
+    </form>
+}

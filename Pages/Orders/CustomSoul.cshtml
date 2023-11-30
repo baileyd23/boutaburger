@@ -1,0 +1,84 @@
+﻿@page
+@model boutaburger.Pages.Orders.CustomSoulModel
+@{
+    <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
+    <div style="display: inline-block;" class="text-left">
+        <img src="~/images/sellYourSoulBurger.jpeg"
+             width="450"
+             height="450"
+             class="chasm" />
+    </div>
+
+    <div style="display: inline-block; margin-left: 100px;" class="text-center">
+        <h5>Sell Your Soul Burger     $8.74</h5>
+        <h5>
+                <b>What's on it: </b><br />
+                Large Bun, Large Beef<br />
+                Patty (2), Onion Rings<br />
+                (Regular), Lettuce (Regular),<br />
+                Cheese (Regular), Pickles<br />
+                (Regular), Habanero (Regular),<br />
+                Ghost Pepper (Regular), <br />
+                boutaburger Sauce (Regular)<br/>
+        </h5>
+    </div>
+
+    <div class="text-center container">
+        <label for="OnionSlider" class="bigger-text">Onion Rings:</label>
+        <input type="range" id="OnionSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('OnionSlider', 'OnionDisplay')">
+        <span id="OnionDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="LettuceSlider" class="bigger-text">Lettuce:</label>
+        <input type="range" id="LettuceSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('LettuceSlider', 'LettuceDisplay')">
+        <span id="LettuceDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="CheeseSlider" class="bigger-text">Cheese:</label>
+        <input type="range" id="CheeseSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('CheeseSlider', 'CheeseDisplay')">
+        <span id="CheeseDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="PicklesSlider" class="bigger-text">Pickles:</label>
+        <input type="range" id="PicklesSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('PicklesSlider', 'PicklesDisplay')">
+        <span id="PicklesDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="HabeneroSlider" class="bigger-text">Habenero:</label>
+        <input type="range" id="HabeneroSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('HabeneroSlider', 'HabeneroDisplay')">
+        <span id="HabeneroDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="GhostSlider" class="bigger-text">Ghost Pepper:</label>
+        <input type="range" id="GhostSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('GhostSlider', 'GhostDisplay')">
+        <span id="GhostDisplay" class="bigger-text">Regular</span>
+        <br />
+
+        <label for="boutaburgerSlider" class="bigger-text">boutaburger Sauce:</label>
+        <input type="range" id="boutaburgerSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('boutaburgerSlider', 'boutaburgerDisplay')">
+        <span id="boutaburgerDisplay" class="bigger-text">Regular</span>
+        <br />
+        <script>
+            function updateDisplay(sliderId, displayId) {
+                var sliderValue = document.getElementById(sliderId).value;
+                var display = document.getElementById(displayId);
+
+                switch (sliderValue) {
+                    case '0':
+                        display.textContent = 'None';
+                        break;
+                    case '1':
+                        display.textContent = 'Regular';
+                        break;
+                    case '2':
+                        display.textContent = 'Extra';
+                        break;
+                    default:
+                        display.textContent = 'Regular';
+                }
+            }
+        </script>
+            <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+    </div>
+    </form>
+}
