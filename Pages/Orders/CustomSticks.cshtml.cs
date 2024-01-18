@@ -1,22 +1,23 @@
 using boutaburger.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Net;
 
 namespace boutaburger.Pages.Orders
 {
     public class CustomSticksModel : PageModel
     {
         [BindProperty]
-        public ThisIsAModel beefburger { get; set; }
-        public double Sticks { get; set; }
+        public ThisIsAModel Sticks { get; set; }
+        public double BeefPrice { get; set; }
         public void OnGet()
         {
         }
         public IActionResult OnPost()
         {
-            Sticks = beefburger.Sticks;
+            BeefPrice = Sticks.BasePrice;
 
-            return RedirectToPage("/Checkout/Checkout", new { Sticks });
+            return RedirectToPage("/Checkout/Checkout", new { BeefPrice });
         }
     }
 }

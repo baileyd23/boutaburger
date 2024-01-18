@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public string BurgerName { get; set; }
-        public string BeefPrice { get; set; }
+        public double BasePrice { get; set; }
     }
 }

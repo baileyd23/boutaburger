@@ -8,22 +8,23 @@ namespace boutaburger.Pages.Orders
     {
         [BindProperty]
         public ThisIsAModel sliderburger { get; set; }
-        public double BasePrice { get; set; }
+        public double BeefPrice { get; set; }
         public void OnGet()
         {
+           
         }
         public IActionResult OnPost()
         {
-            BasePrice = sliderburger.BasePrice;
+            BeefPrice = 4.32;
 
-            if (sliderburger.Ham) BasePrice += 3;
-            if (sliderburger.Cheese) BasePrice += .50;
-            if (sliderburger.Pineapple) BasePrice += 1;
-            if (sliderburger.Pico) BasePrice += .50;
-            if (sliderburger.Guacamole) BasePrice += 2;
-            if (sliderburger.BBQsauce) BasePrice += .50;
+            if (sliderburger.Ham) BeefPrice += 3;
+            if (sliderburger.Cheese) BeefPrice += .50;
+            if (sliderburger.Pineapple) BeefPrice += 1;
+            if (sliderburger.Pico) BeefPrice += .50;
+            if (sliderburger.Guacamole) BeefPrice += 2;
+            if (sliderburger.BBQsauce) BeefPrice += .50;
 
-            return RedirectToPage("/Checkout/Checkout", new { BasePrice });
+            return RedirectToPage("/Checkout/Checkout", new { BeefPrice });
         }
     }
 }

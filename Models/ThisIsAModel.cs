@@ -7,7 +7,7 @@ namespace boutaburger.Models
     {
         public string BeefName { get; set; }
         public double Brownie {  get; set; }
-        public double Brookie { get; set; } = 1.64;
+        public double Brookie { get; set; }
         public double Cookie {  get; set; }
         public double Tea { get; set; }
         public double Pop { get; set; }

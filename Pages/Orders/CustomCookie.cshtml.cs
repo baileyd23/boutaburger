@@ -1,22 +1,23 @@
 using boutaburger.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Net;
 
 namespace boutaburger.Pages.Orders
 {
     public class CustomCookieModel : PageModel
     {
         [BindProperty]
-        public ThisIsAModel beefburger { get; set; }
-        public double Cookie { get; set; }
+        public ThisIsAModel Cookie { get; set; }
+        public double BeefPrice { get; set; }
         public void OnGet()
         {
         }
         public IActionResult OnPost()
         {
-            Cookie = beefburger.Cookie;
+            BeefPrice = Cookie.BasePrice;
 
-            return RedirectToPage("/Checkout/Checkout", new { Cookie });
+            return RedirectToPage("/Checkout/Checkout", new { BeefPrice });
         }
     }
 }

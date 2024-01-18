@@ -8,17 +8,20 @@ namespace boutaburger.Pages.Orders
     {
         [BindProperty]
         public ThisIsAModel goodaburger { get; set; }
-        public double BasePrice { get; set; }
+        public double BeefPrice { get; set; }
+        
         public void OnGet()
         {
+            
         }
         public IActionResult OnPost()
         {
-            BasePrice = goodaburger.BasePrice;
+            BeefPrice = 8.42;
 
-            if (goodaburger.Cheese) BasePrice += .50;
+            if (goodaburger.Cheese) BeefPrice += .50;
 
-            return RedirectToPage("/Checkout/Checkout", new { BasePrice });
+            return RedirectToPage("/Checkout/Checkout", new { BeefPrice });
         }
+        
     }
 }

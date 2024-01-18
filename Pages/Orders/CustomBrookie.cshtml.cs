@@ -7,16 +7,17 @@ namespace boutaburger.Pages.Orders
     public class CustomBrookieModel : PageModel
     {
         [BindProperty]
-        public ThisIsAModel beefburger { get; set; }
-        public double Brookie { get; set; }
+        public ThisIsAModel Brookie { get; set; }
+        public double BeefPrice { get; set; }
         public void OnGet()
         {
         }
         public IActionResult OnPost()
         {
-            Brookie = beefburger.Brookie;
+            BeefPrice = Brookie.BasePrice;
+            
 
-            return RedirectToPage("/Checkout/Checkout", new { Brookie });
+            return RedirectToPage("/Checkout/Checkout", new { BeefPrice });
         }
     }
 }
