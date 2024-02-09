@@ -1,0 +1,43 @@
+﻿@page
+@model boutaburger.Pages.DeleteAllMyHardWorkModel
+@{
+}
+@if (Model.MenuItems != null && Model.MenuItems.Any())
+{
+    <table class="table">
+        <thead>
+            <!-- Add your table header columns here -->
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MenuItems)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.Pics" alt="Item Image" width="50" height="50" />
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.ID">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        <form method="get" asp-page="/Edit" asp-route-id="@item.ID">
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+                    </td>
+                </tr>
+          }  
+            <form method="get" asp-page="/addMenu" >
+                <button type="submit" class="btn btn-primary">Add New Menu Item</button>
+            </form>
+        </tbody>
+    </table>
+}

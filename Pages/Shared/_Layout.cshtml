@@ -26,14 +26,29 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Menu">Menu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Rewards">Rewards</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/About">About</a>
                         </li>
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/addMenu">Edit Menu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/DeleteAllMyHardWork">Edit and Delete</a>
+                            </li>
+                        }
+
+                        <form method="post" asp-page="/burger" asp-page-handler="OnPostAsync">
+                            <input type="text" name="searchString" placeholder="Search" />
+                            <button type="submit">Search</button>
+                        </form>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/SecretOrder">Secret Order</a>
+                            <a class="nav-link text-dark fw-bold" asp-area="" asp-page="/Checkout/Checkout">Checkout</a>
+              
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Start Order">Start Order</a>
-                        </li>
+                        <partial name="_LoginPartial"/>
+                        
                     </ul>
                 </div>
             </div>

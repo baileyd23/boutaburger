@@ -1,19 +1,49 @@
 ﻿@page
 @model boutaburger.Pages.Checkout.CheckoutModel
-@{
+
+<h1>Your Order</h1>
+
+
+@if (Model.CartItems != null && Model.CartItems.Any())
+{
+    <table class="table">
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>
+                        <img src="~/images/@item.Pic" alt="Item Image" width="50" height="50" />
+                    </td>
+                    <td>@item.Names</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Prices</td>
+                    <td>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form method="post" asp-page-handler="Add" asp-route-id="@item.Id">
+                            <button type="submit" class="btn btn-danger">Add</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><strong>Total:</strong></td>
+                <td>@Model.Total</td>
+            </tr>
+        </tfoot>
+    </table>
+    <form method="get" asp-page="/Checkout/Card">
+        <button type="submit" class="btn btn-primary">Checkout</button>
+    </form>
 }
-    <h1>Your Order </h1>
-    @{
-        var imagePath = "~/images" + (@Model.ImageTitle + ".webp");
-    }
-    <div class="align-content-center">
-        <div class="col-3 mx-auto mb-5">
-            <img src="@imagePath class="w-100" asp-append-version="true"/>
-
-            <p>@Model.BeefPrice</p>
-            
-            <br/>
-            <a class="btn alert-primary mt-1 mx-auto" asp-area="" asp-page="ThankYouPage">Confirm Order</a>
-        </div>
-    </div>
-
+else
+{
+}

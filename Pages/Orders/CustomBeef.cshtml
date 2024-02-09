@@ -1,18 +1,28 @@
 ﻿@page
 @model boutaburger.Pages.Orders.CustomBeefModel
 @{
-
+    var message = ViewData["Message"]?.ToString();
+  
+}
     <form method="post" class="mx-auto mt-10 mb-10 px-5 pt-5 rounded-5 bg-light col-12 chasm">
 
+        @if (!string.IsNullOrEmpty(message))
+    {
+      <div class="alert alert-success" role="alert">
+          @message
+      </div>
+    }
+
 <div style="display: inline-block;" class="text-left">
-    <img src="~/images/beefCakeBurger.webp"
+        <img src="~/images/beefCakeBurger.jpg"
+        asp-for="CartItem.Pic"
          width="450"
          height="450"
          class="chasm" />
 </div>
 
 <div style="display: inline-block; margin-left: 100px;" class="text-center">
-    <h4>BeefCake Burger     $5.29</h4>
+        <h4>BeefCake Burger     $5.29</h4>
             <h5>
                 <b>What's on it: </b><br />
                 Large Bun, Large Beef<br />
@@ -28,7 +38,7 @@
 
 
     <label for="LettuceSlider" class="bigger-text">Lettuce:</label>
-    <input type="range" asp-for="beefburger.Lettuce" id="LettuceSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('LettuceSlider', 'LettuceDisplay')">
+    <input type="range" id="LettuceSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('LettuceSlider', 'LettuceDisplay')">
             <span id="LettuceDisplay" class="bigger-text" asp-for="beefburger.Lettuce">Regular</span>
     <br/>
 
@@ -47,6 +57,8 @@
         <span id="BaconDisplay" class="bigger-text" asp-for="beefburger.Bacon">Regular</span>
     <br />
 
+
+
     <label for="PickleSlider" class="bigger-text">Pickles:</label>
     <input type="range" id="PickleSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('PickleSlider', 'PickleDisplay')">
         <span id="PickleDisplay" class="bigger-text" asp-for="beefburger.Pickles">Regular</span>
@@ -56,6 +68,7 @@
     <input type="range" id="sauteedGarlicSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('sauteedGarlicSlider', 'sauteedGarlicDisplay')">
         <span id="sauteedGarlicDisplay" class="bigger-text" asp-for="beefburger.sauteedGarlic">Regular</span>
     <br />
+  
 
     <label for="boutaburgerSauceSlider" class="bigger-text">boutaburger Sauce:</label>
     <input type="range" id="boutaburgerSauceSlider" min="0" max="2" step="1" value="1" oninput="updateDisplay('boutaburgerSauceSlider', 'boutaburgerSauceDisplay')">
@@ -63,6 +76,8 @@
     <br />
 
     <script>
+
+
         function updateDisplay(sliderId, displayId) {
             var sliderValue = document.getElementById(sliderId).value;
             var display = document.getElementById(displayId);
@@ -83,8 +98,9 @@
         }
     </script>
 
-    <button class="btn btn-primary mt-1" type="submit">Add to Order</button>
+            <div class="mb-3">
+                <button type="Submit" class="btn btn-primary">Add</button>
+            </div>
     
 </div>
 </form>
-}
