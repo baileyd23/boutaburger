@@ -1,0 +1,38 @@
+﻿@page
+@model boutaburger.Pages.editMenu
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+
+<form method="post" enctype="multipart/form-data">
+    @if (!string.IsNullOrEmpty(message))
+    {
+        <div class="alert alert-success" role="alert">
+            @message
+        </div>
+    }
+
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="editMenuItem.Name" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="text" class="form-control" asp-for="editMenuItem.Price" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="editMenuItem.Description" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Pics</label>
+        <input type="file" class="form-control" asp-for="editMenuItem.Pics" />
+    </div>
+
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
