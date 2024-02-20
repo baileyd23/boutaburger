@@ -1,5 +1,5 @@
 ﻿@page
-@model boutaburger.Pages.editMenuModel
+@model boutaburger.Pages.EditMenusModel
 @{
     var message = ViewData["Message"]?.ToString();
 }
@@ -12,22 +12,22 @@
     }
     <div class="mb-3">
         <label class="form-label">Name</label>
-        <input type="text" class="form-control" asp-for="editMenuItem.Name" />
+        <input type="text" class="form-control" asp-for="EditMenuItem.Name" />
     </div>
 
     <div class="mb-3">
         <label class="form-label">Price</label>
-        <input type="text" class="form-control" asp-for="editMenuItem.Price" />
+        <input type="text" class="form-control" asp-for="EditMenuItem.Price" />
     </div>
 
     <div class="mb-3">
         <label class="form-label">Description</label>
-        <input type="text" class="form-control" asp-for="editMenuItem.Description" />
+        <input type="text" class="form-control" asp-for="EditMenuItem.Description" />
     </div>
 
     <div class="mb-3">
         <label class="form-label">Pics</label>
-        <input type="file" class="form-control" asp-for="editMenuItem.Pics" />
+        <input type="file" class="form-control" asp-for="EditMenuItem.Pics" />
     </div>
 
     <div class="mb-3">

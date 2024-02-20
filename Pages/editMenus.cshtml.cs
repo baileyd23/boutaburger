@@ -3,25 +3,24 @@ using boutaburger.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace boutaburger.Pages.Orders
-{
+namespace boutaburger.Pages;
 
-    public class editMenuModel : PageModel
+    public class EditMenusModel : PageModel
     {
         private readonly MenuItemDbContext dbContext;
-        public editMenuModel(MenuItemDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
+    public EditMenusModel(MenuItemDbContext dbContext)
+    {
+        this.dbContext = dbContext;
+    }
 
-        [BindProperty]
-        public MenuItem editMenuItem { get; set; }
+    [BindProperty]
+        public MenuItem EditMenuItem { get; set; }
 
         public IActionResult OnGet(int id)
         {
-            editMenuItem = dbContext.MenuItems.Find(id);
+            EditMenuItem = dbContext.MenuItems.Find(id);
 
-            if (editMenuItem == null)
+            if (EditMenuItem == null)
             {
                 return RedirectToPage("/DeleteAllMyHardWork"); // or handle the case when the item is not found
             }
@@ -34,14 +33,14 @@ namespace boutaburger.Pages.Orders
             if (ModelState.IsValid)
             {
                 // Update the existing menu item in the database
-                var existingItem = dbContext.MenuItems.Find(editMenuItem.ID);
+                var existingItem = dbContext.MenuItems.Find(EditMenuItem.ID);
 
                 if (existingItem != null)
                 {
-                    existingItem.Name = editMenuItem.Name;
-                    existingItem.Description = editMenuItem.Description;
-                    existingItem.Pics = editMenuItem.Pics;
-                    existingItem.Price = editMenuItem.Price;
+                    existingItem.Name = EditMenuItem.Name;
+                    existingItem.Description = EditMenuItem.Description;
+                    existingItem.Pics = EditMenuItem.Pics;
+                    existingItem.Price = EditMenuItem.Price;
 
                     dbContext.SaveChanges();
                 }
@@ -52,4 +51,3 @@ namespace boutaburger.Pages.Orders
             return RedirectToPage("/DeleteAllMyHardWork");
         }
     }
-}

@@ -1,3 +1,4 @@
+namespace boutaburger.Pages;
 using boutaburger.Data;
 using boutaburger.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -5,32 +6,32 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
-public class editMenuModel : PageModel
+public class EditMenuModel : PageModel
 {
     private readonly MenuItemDbContext dbContext;
-    public editMenuModel(MenuItemDbContext dbContext)
+    public EditMenuModel(MenuItemDbContext dbContext)
     {
         this.dbContext = dbContext;
     }
 
     [BindProperty]
-    public MenuItem editMenuItem { get; set; }
+    public MenuItem EditMenuItem { get; set; }
 
     public void OnGet(int id)
     {
         // Retrieve the item to edit from the database
-        editMenuItem = dbContext.MenuItems.Find(id);
+        EditMenuItem = dbContext.MenuItems.Find(id);
 
-        if (editMenuItem == null)
+        if (EditMenuItem == null)
         {
             // Handle the case when the item is not found
             RedirectToPage("/DeleteAllMyHardWork");
         }
     }
 
-    public IActionResult OnPostEdit(int id, string editedMenuItem)
+    public IActionResult OnPostEdit(int id, string EditedMenuItem)
     {
-        var menuItem = JsonSerializer.Deserialize<MenuItem>(editedMenuItem);
+        var menuItem = JsonSerializer.Deserialize<MenuItem>(EditedMenuItem);
 
         var existingItem = dbContext.MenuItems.Find(id);
 
